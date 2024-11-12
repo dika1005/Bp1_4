@@ -23,6 +23,7 @@ public class P2 extends javax.swing.JFrame {
     private void simpan() {
         String nim, nama, jk, prodi, alamat;
         nim = jTextField1.getText(); nama = jTextField2.getText();
+     
         jk = " ";
         if(buttonGroup1.isSelected(null)) {
             jk = jRadioButton1.getText();
@@ -43,6 +44,12 @@ public class P2 extends javax.swing.JFrame {
     {hobi.append(jCheckBox4.getText() + "'");}
     
     alamat = jTextArea1.getText();
+    
+     if(nim.isEmpty() || nama.isEmpty() || jk.trim().isEmpty() || prodi == null || alamat.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Registrasi Gagal, Data harus lengkap", "error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+     
     jTextArea2.setText("Data Register \n"
             + "1. Nim : "+nim+"\n"
             + "2. Nama : "+nama+"\n"
@@ -97,6 +104,7 @@ public class P2 extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -162,6 +170,13 @@ public class P2 extends javax.swing.JFrame {
 
         jLabel7.setText("Nama");
 
+        jButton2.setText("Exit");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -194,7 +209,10 @@ public class P2 extends javax.swing.JFrame {
                                             .addComponent(jCheckBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jRadioButton2)))
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton1)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButton1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton2))))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(54, 54, 54)
@@ -243,7 +261,9 @@ public class P2 extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(38, Short.MAX_VALUE))
@@ -268,6 +288,11 @@ public class P2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         simpan();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,6 +332,7 @@ public class P2 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
